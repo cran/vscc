@@ -1,0 +1,21 @@
+citHeader("To cite package 'vscc' in publications use:")
+     
+citEntry(entry="Manual",
+         title = "vscc: Variable selection for clustering and classification",
+    	author = personList(person(given=c("Jeffrey", "L."), family="Andrews"),person(given=c("Paul", "D."), family="McNicholas")),
+    	year = "2013",
+    	note = "R package version 1",
+    	textVersion = "Andrews, J. L. & McNicholas, P. D. (2013). vscc: Variable selection for clustering and classification. R package version 1."
+)
+
+
+citEntry(entry="Article",
+  title=" Variable Selection for Clustering and Classification",
+  author=personList(person(given=c("Jeffrey", "L."), family="Andrews"),person(given=c("Paul", "D."), family="McNicholas")),
+  journal="arXiv preprint",
+  year="2013",
+  note = "arXiv:1303.5294",
+  textVersion = "Andrews, J. L. & McNicholas, P. D. (2013). Variable selection for clustering and classification. arXiv preprint arXiv:1303.5294."
+)
+
+citFooter("For BibTeX entries, call: toBibtex(citation('vscc'))")
