@@ -1,5 +1,7 @@
 export(vscc)
 import(stats, utils, teigen, mclust)
+importFrom("grDevices", "rainbow")
+importFrom("graphics", "pairs")
 S3method(plot, vscc)
 S3method(summary, vscc)
 S3method(print, vscc)

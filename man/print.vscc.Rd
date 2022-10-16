@@ -2,7 +2,7 @@
 \alias{print.vscc}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-Printing for vscc
+Printing for VSCC
 }
 \description{
 Dedicated print function for objects of class vscc.
@@ -22,6 +22,9 @@ Further arguments to be passed on
 \details{
 Same as summary.
 }
+\value{
+No return value.
+}
 \author{
 Jeffrey L. Andrews
 }
@@ -34,4 +37,4 @@ require("mclust")
 data(banknote)
 vscc(banknote[,-1])
 }
-\keyword{ ~kwd1 }
+%\keyword{ ~kwd1 }

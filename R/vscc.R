@@ -1,62 +1,65 @@
 ####Fix the arguments passed along in the post-analysis!
 
-vscc <-function(x, G=1:9, automate="mclust", initial=NULL, train=NULL, forcereduction=FALSE){
+vscc <-function(x, G=1:9, automate="mclust", initial=NULL, initunc=NULL, train=NULL, forcereduction=FALSE){
 	origx <- x
 	origG <- G
 	x <- scale(x)
 	p <- ncol(x)
+	originit <- initial
 	if(is.null(train)){
-		if(automate=="teigen"){
-#			require("teigen")
-			if(packageVersion("teigen")<1.9){
-				warning(paste("The 'vscc' package requires 'teigen' version 1.9 or higher, version", packageVersion("teigen"), "is currently installed: issues may arise."))
-			}
-			if(is.null(initial)){
-				mclinit1 <- hc("VVV",x)
-				mclinit2 <- hclass(mclinit1, G)
-				mclist <- list()
-				for(g in length(G)){
-					mclist[[G[g]]] <- mclinit2[,g]
-				}
-				initrun <- teigen(x, G, init=mclist, training=train, verbose=FALSE) 
-				if(initrun$G==1){stop("teigen initialization gives G=1 solution...please use an initialization where G>1")}
-				initial <- initrun$classification
-				initunc <- sum(1-apply(initrun$fuzzy,1,max))
-			}
-			G <- length(unique(initial))
-			n <- nrow(x)
-			zmat <- matrix(0,n,G)
-			for(i in 1:G){
-				zmat[initial==i, i]<-1
-			}
-		}
-		else{
-			if(automate=="mclust"){
-#				require("mclust")
-				if(packageVersion("mclust")<4.0){
-					warning(paste("VSCC requires 'mclust' version 4.0 or higher, version", packageVersion("mclust"), "is currently installed: issues may arise."))
-				}
-				if(is.null(initial)){
-					initrun <- Mclust(x, G)
-					if(initrun$G==1){stop("mclust initialization gives G=1 solution...please use an initialization where G>1")}
-					initial <- initrun$classification
-					initunc <- sum(initrun$unc)
-				}
-				G <- length(unique(initial))
-				n <- nrow(x)
-				zmat <- matrix(0,n,G)
-				for(i in 1:G){
-					zmat[initial==i, i]<-1
-				}
-			}
-			else{
-				if(is.null(initial)){stop("If an initial clustering vector is not supplied, automate='teigen' or 'mclust' must be specified")}
-			}
-			G <- length(unique(initial))
-			n <- nrow(x)
-			zmat <- matrix(0,n,G)
-			for(i in 1:G){
-				zmat[initial==i, i]<-1
+	  if(is.null(automate)){
+	    if(is.null(initial)){stop("If an initial clustering vector is not supplied, automate='teigen' or 'mclust' must be specified")}
+      G <- length(unique(initial))
+      n <- nrow(x)
+      zmat <- matrix(0,n,G)
+	    for(i in 1:G){
+	      zmat[initial==i, i]<-1
+	    }
+	  }
+    else{
+	  	if(automate=="teigen"){
+#	  		require("teigen")
+  			if(packageVersion("teigen")<1.9){
+  				warning(paste("The 'vscc' package requires 'teigen' version 1.9 or higher, version", packageVersion("teigen"), "is currently installed: issues may arise."))
+  			}
+	  		if(is.null(initial)){
+	  			mclinit1 <- hc("VVV",x)
+  				mclinit2 <- hclass(mclinit1, G)
+	  			mclist <- list()
+	  			for(g in length(G)){
+		  			mclist[[G[g]]] <- mclinit2[,g]
+		  		}
+		  		initrun <- teigen(x, G, init=mclist, training=train, verbose=FALSE) 
+		  		if(initrun$G==1){stop("teigen initialization gives G=1 solution...please use an initialization where G>1")}
+	  			initial <- initrun$classification
+		  		initunc <- sum(1-apply(initrun$fuzzy,1,max))
+	  		}
+	  		G <- length(unique(initial))
+	  		n <- nrow(x)
+	  		zmat <- matrix(0,n,G)
+	  		for(i in 1:G){
+	  			zmat[initial==i, i]<-1
+	  		}
+	  	}
+	  	else{
+		  	if(automate=="mclust"){
+#			  	require("mclust")
+		  		if(packageVersion("mclust")<4.0){
+		  			warning(paste("VSCC requires 'mclust' version 4.0 or higher, version", packageVersion("mclust"), "is currently installed: issues may arise."))
+		  		}
+		  		if(is.null(initial)){
+  					initrun <- Mclust(x, G)
+  					if(initrun$G==1){stop("mclust initialization gives G=1 solution...please use an initialization where G>1")}
+  					initial <- initrun$classification
+  					initunc <- sum(initrun$unc)
+  				}
+  				G <- length(unique(initial))
+  				n <- nrow(x)
+  				zmat <- matrix(0,n,G)
+  				for(i in 1:G){
+  					zmat[initial==i, i]<-1
+  				}
+		  	}
 			}
 		}
 	}
@@ -126,7 +129,7 @@ vscc <-function(x, G=1:9, automate="mclust", initial=NULL, train=NULL, forceredu
 		curname <- colnames(sorted)[k]
 		for(i in 1:5){
 			curcor <- cor(cbind(x[,curname],useselect[[i]]))
-			if(all(abs(curcor[upper.tri(curcor)])<=(1-sorted[1,k]^i))){
+			if(all(abs(curcor[1,-1])<=(1-sorted[1,k]^i))){
 				select[[i]] <- cbind(select[[i]],origx[,curname])
 				useselect[[i]] <- cbind(useselect[[i]],x[,curname])
 				varnames[[i]][counts[i]] <- curname
@@ -235,11 +238,13 @@ vscc <-function(x, G=1:9, automate="mclust", initial=NULL, train=NULL, forceredu
 	store[["selected"]] <- select
 	if(!is.null(automate)){
 #		if(is.null(initial)){
-			if(is.null(train)){
+			if(is.null(train)&&is.null(originit)){
 				store[["initialrun"]] <- initrun
 			}
 			else{
-				initunc <- Inf
+			  if(is.null(initunc)){
+			    initunc <- Inf
+			  }
 			}
 			if(forcereduction){
 				store[["bestmodel"]] <- trun[[which.min(tuncs)]]
@@ -253,10 +258,18 @@ vscc <-function(x, G=1:9, automate="mclust", initial=NULL, train=NULL, forceredu
 					store[["uncertainty"]] <- min(tuncs)
 				}
 				else{
-					store[["bestmodel"]] <- initrun
+				  if(is.null(originit)){
+  					store[["bestmodel"]] <- initrun
+  					store[["uncertainty"]] <- initunc
+				  }
+				  else{
+				    bm <- list()
+				    bm$classification <- initial
+				    store[["bestmodel"]] <- bm
+				    store[["uncertainty"]] <- initunc
+				  }
 					store[["chosenrelation"]] <- "Full dataset"
 					store[["topselected"]] <- origx
-					store[["uncertainty"]] <- initunc
 				}
 			}
 #		}

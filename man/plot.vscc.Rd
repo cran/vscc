@@ -2,7 +2,7 @@
 \alias{plot.vscc}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-Plotting for vscc objects
+Plotting for VSCC Objects
 }
 \description{
 Dedicated plot function for objects of class vscc.
@@ -22,6 +22,9 @@ Further arguments to be passed on
 \details{
 Provides a scatterplot matrix of the selected variables with colours corresponding to each group.
 }
+\value{
+No return value.
+}
 \author{
 Jeffrey L. Andrews
 }
@@ -35,4 +38,4 @@ data(banknote)
 bankrun <- vscc(banknote[,-1])
 plot(bankrun)
 }
-\keyword{ ~kwd1 }
+%\keyword{ ~kwd1 }

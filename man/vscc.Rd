@@ -2,13 +2,14 @@
 \alias{vscc}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-Variable selection for clustering and classification
+Variable Selection for Clustering and Classification
 }
 \description{
 Performs variable selection under a clustering or classification framework. Automated implementation using model-based clustering is based on \code{teigen} version 2.0 and \code{mclust} version 4.0; issues *may* arise when using different versions.
 }
 \usage{
-vscc(x, G=1:9, automate = "mclust", initial = NULL, train = NULL, forcereduction = FALSE)
+vscc(x, G=1:9, automate = "mclust", initial = NULL, initunc=NULL, train = NULL,
+    forcereduction = FALSE)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -23,6 +24,9 @@ Character string (\code{"teigen"}, \code{"mclust"} (default), or NULL only) indi
 }
   \item{initial}{
 Optional vector giving the initial clustering. 
+}
+  \item{initunc}{
+Optional scalar indicating the total uncertainty of the initial clustering solution. Only used when \code{initial} is non-null. 
 }
   \item{train}{
 Optional vector of training data (for classification framework).
@@ -85,5 +89,5 @@ table(banknote[,1], bankrun$bestmodel$classification) #Clustering results on red
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
+%\keyword{ ~kwd1 }
+%\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line

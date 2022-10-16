@@ -2,7 +2,7 @@
 \alias{summary.vscc}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-Summary for VSCC
+Summary for VSCC Objects
 }
 \description{
 Dedicated summary function for objects of class vscc
@@ -19,6 +19,9 @@ An object of class vscc
 Additional arguments to be passed
 }
 }
+\value{
+No return value.
+}
 \author{
 Jeffrey L. Andrews
 }
@@ -32,5 +35,5 @@ require("mclust")
 data(banknote)
 summary(vscc(banknote[,-1]))
 }
-\keyword{ ~kwd1 }
+%\keyword{ ~kwd1 }
 

@@ -1,0 +1,7 @@
+vscc version 0.4
+- Fixed bug in correlation calculations
+- Add ability to provide the total uncertainty of a custom initialization
+- Update maintainer email to UBC address
+
+vscc version 0.3
+- Fixed bug causing error during non-automated runs
