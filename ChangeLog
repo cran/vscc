@@ -1,3 +1,7 @@
+vscc version 0.5
+- Incorporates mixtures of non-Gaussian distributions via Manly transform
+- Requires ManlyMix 
+
 vscc version 0.4
 - Fixed bug in correlation calculations
 - Add ability to provide the total uncertainty of a custom initialization

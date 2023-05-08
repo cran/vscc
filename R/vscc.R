@@ -1,5 +1,3 @@
-####Fix the arguments passed along in the post-analysis!
-
 vscc <-function(x, G=1:9, automate="mclust", initial=NULL, initunc=NULL, train=NULL, forcereduction=FALSE){
 	origx <- x
 	origG <- G

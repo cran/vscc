@@ -1,9 +1,6 @@
 \name{vscc}
 \alias{vscc}
-%- Also NEED an '\alias' for EACH other topic documented here.
-\title{
-Variable Selection for Clustering and Classification
-}
+\title{Variable Selection for Clustering and Classification}
 \description{
 Performs variable selection under a clustering or classification framework. Automated implementation using model-based clustering is based on \code{teigen} version 2.0 and \code{mclust} version 4.0; issues *may* arise when using different versions.
 }

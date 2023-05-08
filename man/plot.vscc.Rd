@@ -1,12 +1,7 @@
 \name{plot.vscc}
 \alias{plot.vscc}
-%- Also NEED an '\alias' for EACH other topic documented here.
-\title{
-Plotting for VSCC Objects
-}
-\description{
-Dedicated plot function for objects of class vscc.
-}
+\title{Plotting for VSCC Objects}
+\description{Dedicated plot function for objects of class vscc.}
 \usage{
 \method{plot}{vscc}(x, ...)
 }

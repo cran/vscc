@@ -1,21 +1,19 @@
-citHeader("To cite package 'vscc' in publications use:")
-     
-citEntry(entry="Manual",
+bibentry(bibtype="Manual",
          title = "vscc: Variable selection for clustering and classification",
-    	author = personList(person(given=c("Jeffrey", "L."), family="Andrews"),person(given=c("Paul", "D."), family="McNicholas")),
-    	year = "2013",
-    	note = "R package version 1",
-    	textVersion = "Andrews, J. L. & McNicholas, P. D. (2013). vscc: Variable selection for clustering and classification. R package version 1."
+    	author = c(person(given=c("Jeffrey", "L."), family="Andrews"),person(given=c("Mackenzie"), family="Neal"),person(given=c("Paul", "D."), family="McNicholas")),
+    	year = "2023",
+    	note = "R package version 0.5",
+    	textVersion = "Andrews, J. L., Neal, M. & McNicholas, P. D. (2023). vscc: Variable selection for clustering and classification. R package version 0.5."
 )
 
 
-citEntry(entry="Article",
+bibentry(bibtype="Article",
   title=" Variable Selection for Clustering and Classification",
-  author=personList(person(given=c("Jeffrey", "L."), family="Andrews"),person(given=c("Paul", "D."), family="McNicholas")),
-  journal="arXiv preprint",
-  year="2013",
-  note = "arXiv:1303.5294",
-  textVersion = "Andrews, J. L. & McNicholas, P. D. (2013). Variable selection for clustering and classification. arXiv preprint arXiv:1303.5294."
+  author=c(person(given=c("Jeffrey", "L."), family="Andrews"),person(given=c("Paul", "D."), family="McNicholas")),
+  journal="Journal of Classification",
+  year="2014",
+  volume="31",
+  number="2",
+  pages="136--153",
+  textVersion = "Andrews, J. L. & McNicholas, P. D. (2023). Variable selection for clustering and classification. Journal of Classification 31(2), 136-153."
 )
-
-citFooter("For BibTeX entries, call: toBibtex(citation('vscc'))")
