@@ -1,6 +1,10 @@
+vscc version 0.6
+- Consistent computation of BIC from vscc and vsccmanly
+
 vscc version 0.5
 - Incorporates mixtures of non-Gaussian distributions via Manly transform
 - Requires ManlyMix 
+- Maintainer changed
 
 vscc version 0.4
 - Fixed bug in correlation calculations

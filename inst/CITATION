@@ -1,9 +1,9 @@
 bibentry(bibtype="Manual",
          title = "vscc: Variable selection for clustering and classification",
-    	author = c(person(given=c("Jeffrey", "L."), family="Andrews"),person(given=c("Mackenzie"), family="Neal"),person(given=c("Paul", "D."), family="McNicholas")),
+    	author = c(person(given=c("Jeffrey", "L."), family="Andrews"),person(given=c("Mackenzie", "R"), family="Neal"),person(given=c("Paul", "D."), family="McNicholas")),
     	year = "2023",
     	note = "R package version 0.5",
-    	textVersion = "Andrews, J. L., Neal, M. & McNicholas, P. D. (2023). vscc: Variable selection for clustering and classification. R package version 0.5."
+    	textVersion = "Andrews, J. L., Neal, M. R. & McNicholas, P. D. (2023). vscc: Variable selection for clustering and classification. R package version 0.6."
 )
 
 
@@ -15,5 +15,13 @@ bibentry(bibtype="Article",
   volume="31",
   number="2",
   pages="136--153",
-  textVersion = "Andrews, J. L. & McNicholas, P. D. (2023). Variable selection for clustering and classification. Journal of Classification 31(2), 136-153."
+  textVersion = "Andrews, J. L. & McNicholas, P. D. (2014). Variable selection for clustering and classification. Journal of Classification 31(2), 136-153."
+)
+
+bibentry(bibtype="Article",
+  title="Flexible Variable Selection for Clustering and Classification",
+  author=c(person(given=c("Mackenzie", "R."), family="Neal"),person(given=c("Paul", "D."), family="McNicholas")),
+  journal="arXiv preprint	arXiv:2305.16464",
+  year="2023",
+  textVersion = "Neal, M. R. & McNicholas, P. D. (2023). Flexible variable selection for clustering and classification. arXiv preprint	arXiv:2305.16464."
 )

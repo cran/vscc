@@ -329,6 +329,13 @@ vsccmanly <-function(x, G=2:9, numstart=100,
     }
   }
   
+  #change bic to bigger is better
+  suppressWarnings({
+    for(i in 1:5){
+      modrun[[i]]$bic=tryCatch({-1*modrun[[i]]$bic}, error=function(e) NA)
+    }
+  })
+  
   #The following code, used to output results, comes from the vscc function in the vscc package (Andrews and McNicholas, 2013) 
   #to ensure consistency between functions.
   store <- list()
