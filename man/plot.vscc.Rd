@@ -30,7 +30,8 @@ Jeffrey L. Andrews
 \examples{
 require("mclust")
 data(banknote)
-bankrun <- vscc(banknote[,-1])
+X<-banknote[,-1]
+bankrun <- vscc(X)
 plot(bankrun)
 }
 %\keyword{ ~kwd1 }

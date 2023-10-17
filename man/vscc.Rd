@@ -77,8 +77,8 @@ Jeffrey L. Andrews, Paul D. McNicholas
 }
 \examples{
 require("mclust")
-data(banknote) #Load data
-head(banknote[,-1]) #Show preview of full data set
+data(banknote)
+head(banknote)
 bankrun <- vscc(banknote[,-1])
 head(bankrun$topselected) #Show preview of selected variables
 table(banknote[,1], bankrun$initialrun$classification) #Clustering results on full data set

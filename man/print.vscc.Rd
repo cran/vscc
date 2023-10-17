@@ -35,6 +35,7 @@ Jeffrey L. Andrews
 \examples{
 require("mclust")
 data(banknote)
-vscc(banknote[,-1])
+X<-banknote[,-1]
+vscc(X)
 }
 %\keyword{ ~kwd1 }

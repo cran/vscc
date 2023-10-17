@@ -9,9 +9,9 @@ Performs variable selection under a clustering or classification framework. Auto
 \tabular{ll}{
 Package: \tab vscc\cr
 Type: \tab Package\cr
-Version: \tab 0.5\cr
-Date: \tab 2023-05-02\cr
-License: \tab GPL>=2\cr
+Version: \tab 0.7\cr
+Date: \tab 2023-10-17\cr
+License: \tab GPL>="2"\cr
 }
 }
 \author{
@@ -22,7 +22,7 @@ Maintainer: Paul D. McNicholas <mcnicholas@math.mcmaster.ca>
 \references{
 See \code{citation("vscc")}.
 }
-\keyword{ package }
+\keyword{package}
 \seealso{
 \code{\link{vscc}}
 }

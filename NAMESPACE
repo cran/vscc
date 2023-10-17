@@ -1,5 +1,5 @@
 export(vscc,vsccmanly)
-import(stats, utils, teigen, mclust, ManlyMix)
+import(stats, utils, teigen, mclust, ManlyMix, MixGHD)
 importFrom("grDevices", "rainbow")
 importFrom("graphics", "pairs")
 S3method(plot, vscc)

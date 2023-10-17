@@ -17,7 +17,7 @@ vscc <-function(x, G=1:9, automate="mclust", initial=NULL, initunc=NULL, train=N
     else{
 	  	if(automate=="teigen"){
 #	  		require("teigen")
-  			if(packageVersion("teigen")<1.9){
+  			if(as.numeric(substr(packageVersion("teigen"), 1,3))<1.9){
   				warning(paste("The 'vscc' package requires 'teigen' version 1.9 or higher, version", packageVersion("teigen"), "is currently installed: issues may arise."))
   			}
 	  		if(is.null(initial)){
@@ -42,7 +42,7 @@ vscc <-function(x, G=1:9, automate="mclust", initial=NULL, initunc=NULL, train=N
 	  	else{
 		  	if(automate=="mclust"){
 #			  	require("mclust")
-		  		if(packageVersion("mclust")<4.0){
+		  		if(as.numeric(substr(packageVersion("mclust"), 1,3))<4.0){
 		  			warning(paste("VSCC requires 'mclust' version 4.0 or higher, version", packageVersion("mclust"), "is currently installed: issues may arise."))
 		  		}
 		  		if(is.null(initial)){

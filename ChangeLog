@@ -1,3 +1,6 @@
+vscc version 0.7
+- Minor edits requested by CRAN
+
 vscc version 0.6
 - Consistent computation of BIC from vscc and vsccmanly
 
